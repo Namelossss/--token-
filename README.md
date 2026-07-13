@@ -33,9 +33,13 @@
 
 ### 🎬 操作演示
 
-<video src="./screenshots/demo.mp4" controls width="100%" style="max-width:800px;border-radius:8px;">
-  你的浏览器不支持视频播放，<a href="./screenshots/demo.mp4">点击下载观看</a>
-</video>
+<p align="center">
+  <a href="./screenshots/demo.mp4">
+    <img src="./screenshots/demo-cover.png" alt="平台操作演示" width="80%" style="max-width:800px;" />
+  </a>
+  <br/>
+  <em>▲ 点击图片查看完整操作演示视频</em>
+</p>
 
 ### 📸 界面截图
 
