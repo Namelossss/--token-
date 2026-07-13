@@ -33,13 +33,7 @@
 
 ### 🎬 操作演示
 
-<p align="center">
-  <a href="./screenshots/demo.mp4">
-    <img src="./screenshots/demo-cover.png" alt="平台操作演示" width="80%" style="max-width:800px;" />
-  </a>
-  <br/>
-  <em>▲ 点击图片查看完整操作演示视频</em>
-</p>
+https://github.com/user-attachments/assets/c420e1cc-2ea6-4739-9de5-4dcfc96cff42
 
 ### 📸 界面截图
 
