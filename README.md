@@ -31,7 +31,13 @@
 
 ## 🖥️ 平台预览
 
-> 📸 替换为你的网页实际截图，展示控制台界面、对话页面、用量面板等。
+### 🎬 操作演示
+
+<video src="./screenshots/demo.mp4" controls width="100%" style="max-width:800px;border-radius:8px;">
+  你的浏览器不支持视频播放，<a href="./screenshots/demo.mp4">点击下载观看</a>
+</video>
+
+### 📸 界面截图
 
 <p align="center">
   <img src="./screenshots/dashboard.png" alt="控制台首页" width="80%" />
@@ -50,8 +56,6 @@
   <br/>
   <em>▲ 用量面板 — Token 消耗与费用实时可见</em>
 </p>
-
-> 💡 建议截图内容：首页 Dashboard、对话界面、API Key 管理页、用量统计页。截图后放入 `screenshots/` 文件夹并替换上方路径即可。
 
 ---
 
@@ -211,8 +215,6 @@ print(response.choices[0].message.content)
   <br/>
   <em>▲ 微信扫码加入交流群（如二维码过期请添加微信 zwl568633995）</em>
 </p>
-
-> 💡 将微信群二维码截图保存为 `screenshots/wechat-qrcode.png` 即可自动显示。
 
 ---
 
