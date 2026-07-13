@@ -1,0 +1,208 @@
+# 🚀 Token 开放平台
+
+> 一站式大模型算力服务平台 —— 本地私有化部署，按量计费，开箱即用。
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Web%20%7C%20API-brightgreen)](https://your-domain.com)
+[![Models](https://img.shields.io/badge/models-10+-orange)]()
+
+---
+
+## 📖 项目简介
+
+**Token 开放平台** 是一个面向企业与开发者的 AI 模型算力服务平台。我们通过自建 GPU 服务器集群私有化部署主流大语言模型，为用户提供稳定、安全、低延迟的模型推理服务。
+
+用户无需昂贵的硬件投入和复杂的运维工作，只需注册账号，即可在 Web 控制台或通过标准 API 直接调用 **GLM-5.1**、**Kimi-K2.6**、**Qwen3** 系列等头部大模型，按 Token 用量灵活计费。
+
+---
+
+## ✨ 核心优势
+
+| 优势 | 说明 |
+|------|------|
+| 🔒 **数据安全** | 本地私有化部署，数据不出境，满足企业合规要求 |
+| ⚡ **低延迟推理** | 自建 GPU 集群就近部署，毫秒级响应 |
+| 🎯 **多模型聚合** | 一个平台接入所有主流模型，无需对接多家厂商 |
+| 💰 **弹性计费** | 按实际 Token 用量付费，无最低消费，用多少付多少 |
+| 🛠️ **开箱即用** | Web 控制台 + RESTful API，5 分钟即可接入业务 |
+| 📊 **用量可视化** | 实时监控 Token 消耗、费用明细、调用日志 |
+
+---
+
+## 🖥️ 平台预览
+
+> 📸 替换为你的网页实际截图，展示控制台界面、对话页面、用量面板等。
+
+<p align="center">
+  <img src="./screenshots/dashboard.png" alt="控制台首页" width="80%" />
+  <br/>
+  <em>▲ 控制台首页 — 模型选择与用量概览</em>
+</p>
+
+<p align="center">
+  <img src="./screenshots/chat.png" alt="对话界面" width="80%" />
+  <br/>
+  <em>▲ 在线对话 — 支持多模型切换与流式输出</em>
+</p>
+
+<p align="center">
+  <img src="./screenshots/billing.png" alt="用量与计费" width="80%" />
+  <br/>
+  <em>▲ 用量面板 — Token 消耗与费用实时可见</em>
+</p>
+
+> 💡 建议截图内容：首页 Dashboard、对话界面、API Key 管理页、用量统计页。截图后放入 `screenshots/` 文件夹并替换上方路径即可。
+
+---
+
+## 🤖 已接入模型
+
+### 通用对话
+| 模型 | 厂商 | 适用场景 |
+|------|------|----------|
+| **GLM-5.1** | 智谱 AI | 复杂推理、长文本理解、Agent 任务 |
+| **Kimi-K2.6** | Moonshot AI | 超长上下文、文档分析、深度研究 |
+| **Qwen3-Max** | 阿里巴巴 | 多语言对话、代码生成、创意写作 |
+| **Qwen3-Plus** | 阿里巴巴 | 高性价比日常对话、知识问答 |
+| **DeepSeek-V3** | DeepSeek | 高性能推理、数学与编程 |
+
+### 代码专用
+| 模型 | 说明 |
+|------|------|
+| **Qwen3-Coder** | 代码生成、Debug、代码审查 |
+| **DeepSeek-Coder-V2** | 企业级代码助手 |
+
+### 多模态
+| 模型 | 说明 |
+|------|------|
+| **Qwen-VL-Max** | 图像理解、OCR、视觉问答 |
+| **GLM-4V** | 图文分析、图表解读 |
+
+> 📌 持续接入更多模型，也支持为大型客户 **定制私有模型部署**。
+
+---
+
+## 🏗️ 技术架构
+
+```
+┌─────────────────────────────────────────────────┐
+│                   用户层                          │
+│   Web 控制台  │  API/SDK  │  企业SSO集成          │
+└──────────────────────┬──────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────┐
+│                 网关层 (Gateway)                  │
+│   统一鉴权 · 限流 · 路由 · 日志 · 计费埋点         │
+└──────────────────────┬──────────────────────────┘
+                       │
+┌──────────────────────▼──────────────────────────┐
+│              调度层 (Orchestrator)                │
+│   模型路由 · 负载均衡 · 队列管理 · 故障转移         │
+└──────┬───────────────┬───────────────┬──────────┘
+       │               │               │
+┌──────▼──────┐ ┌──────▼──────┐ ┌──────▼──────┐
+│  GLM 实例池  │ │ Kimi 实例池  │ │ Qwen 实例池  │
+│  (vLLM)     │ │  (vLLM)     │ │  (vLLM)     │
+└─────────────┘ └─────────────┘ └─────────────┘
+       │               │               │
+┌──────▼───────────────▼───────────────▼──────────┐
+│              GPU 算力集群 (NVIDIA A100/H800)       │
+└─────────────────────────────────────────────────┘
+```
+
+### 技术栈
+
+- **推理引擎**: vLLM / TGI（高性能推理框架）
+- **后端**: Python (FastAPI) / Go
+- **前端**: React + TypeScript + TailwindCSS
+- **数据库**: PostgreSQL + Redis
+- **消息队列**: RabbitMQ
+- **监控**: Prometheus + Grafana
+- **容器化**: Docker + Kubernetes
+
+---
+
+## 🚀 快速开始
+
+### 方式一：Web 控制台
+
+1. 访问 [https://your-domain.com](https://your-domain.com) 注册账号
+2. 在控制台获取 API Key
+3. 选择模型，直接在线对话测试
+
+### 方式二：API 调用
+
+```bash
+curl https://api.your-domain.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "glm-5.1",
+    "messages": [{"role": "user", "content": "你好，请介绍一下自己"}],
+    "temperature": 0.7
+  }'
+```
+
+### 方式三：Python SDK
+
+```python
+from token_open_platform import Client
+
+client = Client(api_key="YOUR_API_KEY")
+
+response = client.chat.completions.create(
+    model="qwen3-max",
+    messages=[{"role": "user", "content": "用Python写一个快速排序"}]
+)
+
+print(response.choices[0].message.content)
+```
+
+---
+
+## 💼 适用场景
+
+- 🏢 **企业 AI 转型** — 为内部系统快速接入大模型能力
+- 🌐 **AI 应用创业** — 低成本启动，无需自购 GPU
+- 📚 **教育培训** — 高校 AI 课程实训、科研实验
+- 🤖 **智能客服** — 接入现有客服系统，7×24 小时在线
+- 📝 **内容生产** — 批量生成文案、翻译、摘要
+
+---
+
+## 📞 商业合作
+
+我们支持以下合作模式：
+
+- **API 调用**：标准按量计费，即开即用
+- **专属实例**：独享 GPU 资源，更高并发，更低延迟
+- **私有化部署**：部署到客户自有服务器，数据完全隔离
+- **定制模型微调**：基于客户业务数据进行模型精调
+
+> 📧 商务咨询：**business@your-domain.com**  
+> 💬 技术支持：**support@your-domain.com**  
+> 🌐 官网：[https://your-domain.com](https://your-domain.com)
+
+### 💬 加入社群
+
+> 📱 扫码加入微信群，获取最新模型上线通知、优惠活动与技术交流。
+
+<p align="center">
+  <img src="./screenshots/wechat-qrcode.png" alt="微信群聊二维码" width="200" />
+  <br/>
+  <em>▲ 微信扫码加入交流群（如二维码过期请邮件联系）</em>
+</p>
+
+> 💡 将微信群二维码截图保存为 `screenshots/wechat-qrcode.png` 即可自动显示。
+
+---
+
+## 📄 License
+
+本项目采用 [MIT License](LICENSE) 开源，欢迎 Star ⭐ 和贡献代码。
+
+---
+
+<p align="center">
+  <b>Token 开放平台</b> —— 让每一家公司都用得起顶级 AI 算力。
+</p>
