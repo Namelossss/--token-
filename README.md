@@ -8,6 +8,18 @@
 
 ---
 
+### 💬 加入社群
+
+> 📱 扫码加入微信群，获取最新模型上线通知、优惠活动与技术交流。
+
+<p align="center">
+  <img src="./screenshots/wechat-qrcode.png" alt="微信群聊二维码" width="200" />
+  <br/>
+  <em>▲ 微信扫码加入交流群（如二维码过期请添加微信 zwl568633995）</em>
+</p>
+
+---
+
 ## 📖 项目简介
 
 **Token 开放平台** 是一个面向企业与开发者的 AI 模型算力服务平台。我们通过自建 GPU 服务器集群私有化部署主流大语言模型，为用户提供稳定、安全、低延迟的模型推理服务。
@@ -204,17 +216,6 @@ print(response.choices[0].message.content)
 > 🌐 Token 开放平台：[https://aiplatform.njsrd.com/nexus](https://aiplatform.njsrd.com/nexus)  
 > 🌐 公司官网：[https://aiplatform.njsrd.com/](https://aiplatform.njsrd.com/)
 
-### 💬 加入社群
-
-> 📱 扫码加入微信群，获取最新模型上线通知、优惠活动与技术交流。
-
-<p align="center">
-  <img src="./screenshots/wechat-qrcode.png" alt="微信群聊二维码" width="200" />
-  <br/>
-  <em>▲ 微信扫码加入交流群（如二维码过期请添加微信 zwl568633995）</em>
-</p>
-
----
 
 ## 📄 License
 
